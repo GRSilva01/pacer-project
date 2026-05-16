@@ -18,4 +18,6 @@ Projeto acadêmico de rede social voltada para corredores.
 - API REST
 
 ## Autor
+Gabriel Rosa
 João Vitor
+Thiago Matheus
