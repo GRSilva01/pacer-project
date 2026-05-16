@@ -1,9 +1,16 @@
-package com.pacer.entity;
+package com.pacer.appPacer.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "usuarios")
 public class Usuario {
 
@@ -20,53 +27,4 @@ public class Usuario {
     @Column(nullable = false)
     private String senha;
 
-    @Column(name = "data_criacao")
-    private LocalDateTime dataCriacao;
-
-    public Usuario() {
-    }
-
-    public Usuario(String nome, String email, String senha) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.dataCriacao = LocalDateTime.now();
-    }
-
-    @PrePersist
-    public void prePersist() {
-        this.dataCriacao = LocalDateTime.now();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public LocalDateTime getDataCriacao() {
-        return dataCriacao;
-    }
 }

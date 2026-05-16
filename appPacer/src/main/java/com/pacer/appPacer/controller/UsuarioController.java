@@ -1,7 +1,7 @@
-package com.pacer.controller;
+package com.pacer.appPacer.controller;
 
-import com.pacer.entity.Usuario;
-import com.pacer.service.UsuarioService;
+import com.pacer.appPacer.service.UsuarioService;
+import com.pacer.appPacer.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,8 +12,8 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @PostMapping
-    public Usuario salvar(@RequestBody Usuario usuario) {
-        return usuarioService.salvar(usuario);
+    @PostMapping("/cadastrar")
+    public void cadastrar(@RequestBody Usuario usuario) {
+        usuarioService.cadastrarUsuario(usuario);
     }
 }
