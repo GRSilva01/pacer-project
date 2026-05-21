@@ -20,4 +20,15 @@ public class UsuarioService {
         }
         usuarioRepository.save(usuario);
     }
+
+    public Usuario alterarCredenciais(Long id, Usuario usuarioAtualizado) {
+
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+
+        usuario.setNome(usuarioAtualizado.getNome());
+        usuario.setSenha(usuarioAtualizado.getSenha());
+
+        return usuarioRepository.save(usuario);
+    }
 }

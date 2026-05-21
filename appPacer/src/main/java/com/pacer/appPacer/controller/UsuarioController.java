@@ -17,3 +17,16 @@ public class UsuarioController {
         usuarioService.cadastrarUsuario(usuario);
     }
 }
+
+@PostMapping("/cadastrar")
+public void cadastrar(@RequestBody Usuario usuario) {
+    usuarioService.cadastrarUsuario(usuario);
+}
+
+@PutMapping("/alterar/{id}")
+public Usuario alterarCredenciais(
+        @PathVariable Long id,
+        @RequestBody Usuario usuarioAtualizado) {
+
+    return usuarioService.alterarCredenciais(id, usuarioAtualizado);
+}
